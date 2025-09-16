@@ -1,0 +1,89 @@
+[
+  {
+    "id": "stu-001",
+    "first_name": "Alice",
+    "last_name": "Nguyen",
+    "email": "alice.nguyen@example.edu",
+    "phone": "+1-555-0101",
+    "status": "Prospect",
+    "stage": "Campus Tour",
+    "owner": "Jordan Rivera",
+    "tags": [
+      "STEM",
+      "International"
+    ],
+    "notes": [
+      {
+        "timestamp": "2024-03-01T15:32:00Z",
+        "author": "Jordan Rivera",
+        "content": "Visited campus and asked about scholarship opportunities."
+      },
+      {
+        "timestamp": "2024-02-20T09:15:00Z",
+        "author": "Jordan Rivera",
+        "content": "Completed virtual open day session."
+      }
+    ]
+  },
+  {
+    "id": "stu-002",
+    "first_name": "Brian",
+    "last_name": "Lopez",
+    "email": "brian.lopez@example.edu",
+    "phone": "+1-555-0138",
+    "status": "Applicant",
+    "stage": "Interview",
+    "owner": "Priya Shah",
+    "tags": [
+      "Business",
+      "Honors"
+    ],
+    "notes": [
+      {
+        "timestamp": "2024-03-05T14:10:00Z",
+        "author": "Priya Shah",
+        "content": "Interview scheduled for March 12th at 10:00 AM."
+      }
+    ]
+  },
+  {
+    "id": "stu-003",
+    "first_name": "Carmen",
+    "last_name": "Jones",
+    "email": "carmen.jones@example.edu",
+    "phone": "+1-555-0172",
+    "status": "Enrolled",
+    "stage": "Orientation",
+    "owner": "Jordan Rivera",
+    "tags": [
+      "Scholarship",
+      "Athletics"
+    ],
+    "notes": [
+      {
+        "timestamp": "2024-01-25T16:45:00Z",
+        "author": "Jordan Rivera",
+        "content": "Accepted offer and submitted enrollment deposit."
+      },
+      {
+        "timestamp": "2023-12-19T11:05:00Z",
+        "author": "Jordan Rivera",
+        "content": "Requested information about housing options."
+      }
+    ]
+  },
+  {
+    "id": "stu-004",
+    "first_name": "Darius",
+    "last_name": "Okafor",
+    "email": "darius.okafor@example.edu",
+    "phone": "+1-555-0199",
+    "status": "Prospect",
+    "stage": "Inquiry",
+    "owner": "Priya Shah",
+    "tags": [
+      "Engineering"
+    ],
+    "notes": []
+  }
+]
