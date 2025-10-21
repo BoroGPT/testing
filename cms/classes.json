@@ -1,0 +1,75 @@
+{
+  "classes": [
+    {
+      "id": "CS101",
+      "name": "Introduction to Computer Science",
+      "instructor": "Dr. Jane Smith",
+      "schedule": "MWF 10:00-11:00",
+      "room": "Building A - Room 101",
+      "students": [
+        {
+          "id": "S001",
+          "name": "Alice Johnson",
+          "email": "alice@example.com"
+        },
+        {
+          "id": "S002",
+          "name": "Bob Williams",
+          "email": "bob@example.com"
+        }
+      ],
+      "assignments": [
+        {
+          "id": "A001",
+          "title": "Python Basics",
+          "due_date": "2025-11-01",
+          "max_points": 100,
+          "grades": {
+            "S001": 95,
+            "S002": 88
+          }
+        },
+        {
+          "id": "A002",
+          "title": "Data Structures",
+          "due_date": "2025-11-15",
+          "max_points": 100,
+          "grades": {
+            "S001": 92
+          }
+        }
+      ]
+    },
+    {
+      "id": "MATH201",
+      "name": "Calculus II",
+      "instructor": "Prof. John Davis",
+      "schedule": "TTh 14:00-15:30",
+      "room": "Building B - Room 205",
+      "students": [
+        {
+          "id": "S001",
+          "name": "Alice Johnson",
+          "email": "alice@example.com"
+        },
+        {
+          "id": "S003",
+          "name": "Charlie Brown",
+          "email": "charlie@example.com"
+        }
+      ],
+      "assignments": [
+        {
+          "id": "A001",
+          "title": "Integration Techniques",
+          "due_date": "2025-10-30",
+          "max_points": 100,
+          "grades": {
+            "S001": 98,
+            "S003": 85
+          }
+        }
+      ]
+    }
+  ]
+}
