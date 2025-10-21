@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WoW Boardgame Damage Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>World of Warcraft Boardgame</h1>
+            <h2>Damage Tracker</h2>
+        </header>
+
+        <div class="add-player-section">
+            <h3>Add Player/Character</h3>
+            <div class="input-group">
+                <input type="text" id="playerName" placeholder="Character Name" />
+                <input type="number" id="maxHealth" placeholder="Max Health" value="20" min="1" />
+                <button id="addPlayerBtn" onclick="addPlayer()">Add Character</button>
+            </div>
+        </div>
+
+        <div class="players-container" id="playersContainer">
+            <!-- Player cards will be dynamically added here -->
+        </div>
+
+        <div class="controls">
+            <button class="reset-all-btn" onclick="resetAll()">Reset All</button>
+            <button class="clear-all-btn" onclick="clearAll()">Clear All Characters</button>
+        </div>
+
+        <div class="damage-log-section">
+            <h3>Combat Log</h3>
+            <div id="combatLog" class="combat-log"></div>
+            <button class="clear-log-btn" onclick="clearLog()">Clear Log</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
