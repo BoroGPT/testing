@@ -4,18 +4,45 @@ This repository contains a comprehensive Class Management System for managing co
 
 ## Features
 
+- Modern web interface with beautiful, responsive design
 - Manage multiple classes with instructor and schedule information
 - Track students enrolled in each class
 - Create and manage assignments with due dates
 - Record and track grades for students
-- Generate student progress reports
+- Generate detailed student progress reports with print support
 - Search functionality across classes and students
+- Real-time form validation
+- Mobile-friendly responsive layout
 
-## Installation
+## Quick Start - Web Application
 
-Requires Python 3.6 or higher. No external dependencies needed.
+### Installation
 
-## Usage
+1. Install Python 3.6 or higher
+2. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Web App
+
+```bash
+cd cms
+python app.py
+```
+
+Then open your browser to: **http://localhost:5000**
+
+The web interface provides:
+- Dashboard with all classes
+- Class detail pages with students and assignments
+- Grade management interface
+- Student progress reports
+- Search functionality
+- Easy forms for adding/editing data
+
+## Command Line Usage
 
 ### List All Classes
 
@@ -94,6 +121,84 @@ python cms/cms.py grade ENG201 A001 S006 88
 
 # View student progress
 python cms/cms.py report ENG201 S005
+```
+
+## Deploying to Production
+
+### Deploy to Render (Free)
+
+1. Create a free account at [Render.com](https://render.com)
+2. Click "New +" and select "Web Service"
+3. Connect your GitHub repository
+4. Configure:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `cd cms && python app.py`
+   - **Environment**: Python 3
+5. Click "Create Web Service"
+
+Your CMS will be live at a free `.onrender.com` URL!
+
+### Deploy to Railway (Free)
+
+1. Create account at [Railway.app](https://railway.app)
+2. Click "New Project" → "Deploy from GitHub repo"
+3. Select your repository
+4. Railway auto-detects Python and uses `requirements.txt`
+5. Set start command: `cd cms && python app.py`
+
+### Deploy to Heroku
+
+1. Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+2. Create a `Procfile` in the root directory:
+   ```
+   web: cd cms && gunicorn app:app
+   ```
+3. Add `gunicorn` to `requirements.txt`
+4. Deploy:
+   ```bash
+   heroku create your-cms-app
+   git push heroku main
+   ```
+
+### Environment Configuration
+
+For production, update the secret key in `cms/app.py`:
+```python
+app.secret_key = 'your-secure-random-secret-key-here'
+```
+
+Generate a secure key:
+```bash
+python -c "import secrets; print(secrets.token_hex(32))"
+```
+
+## Project Structure
+
+```
+.
+├── cms/
+│   ├── app.py              # Flask web application
+│   ├── cms.py              # Command-line interface
+│   ├── classes.json        # Data storage
+│   ├── templates/          # HTML templates
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── class_detail.html
+│   │   ├── add_class.html
+│   │   ├── edit_class.html
+│   │   ├── add_student.html
+│   │   ├── add_assignment.html
+│   │   ├── manage_grades.html
+│   │   ├── student_report.html
+│   │   └── search_results.html
+│   └── static/
+│       ├── css/
+│       │   └── style.css   # Modern, responsive styles
+│       └── js/
+│           └── main.js     # Interactive features
+├── codex/                  # MTG card codex
+├── requirements.txt        # Python dependencies
+└── README.md
 ```
 
 ---

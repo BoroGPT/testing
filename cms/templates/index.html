@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Classes - CMS{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>All Classes</h1>
+    <a href="{{ url_for('add_class') }}" class="btn btn-primary">Add New Class</a>
+</div>
+
+{% if classes %}
+    <div class="class-grid">
+        {% for cls in classes %}
+            <div class="class-card">
+                <div class="class-card-header">
+                    <h2>{{ cls.name }}</h2>
+                    <span class="class-id">{{ cls.id }}</span>
+                </div>
+                <div class="class-card-body">
+                    <div class="class-info">
+                        <div class="info-row">
+                            <span class="info-label">Instructor:</span>
+                            <span class="info-value">{{ cls.instructor }}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Schedule:</span>
+                            <span class="info-value">{{ cls.schedule }}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Room:</span>
+                            <span class="info-value">{{ cls.room }}</span>
+                        </div>
+                    </div>
+                    <div class="class-stats">
+                        <div class="stat">
+                            <span class="stat-number">{{ cls.students|length }}</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">{{ cls.assignments|length }}</span>
+                            <span class="stat-label">Assignments</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="class-card-footer">
+                    <a href="{{ url_for('view_class', class_id=cls.id) }}" class="btn btn-secondary">View Details</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        <h2>No Classes Yet</h2>
+        <p>Get started by adding your first class!</p>
+        <a href="{{ url_for('add_class') }}" class="btn btn-primary">Add Class</a>
+    </div>
+{% endif %}
+{% endblock %}

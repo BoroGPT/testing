@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}{{ student.name }} Report - CMS{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <a href="{{ url_for('view_class', class_id=cls.id) }}" class="breadcrumb">&larr; Back to {{ cls.name }}</a>
+        <h1>Student Report</h1>
+    </div>
+</div>
+
+<div class="report-header">
+    <div class="report-info">
+        <h2>{{ student.name }}</h2>
+        <p><strong>Student ID:</strong> {{ student.id }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+    </div>
+    <div class="report-class">
+        <p><strong>Class:</strong> {{ cls.name }}</p>
+        <p><strong>Class ID:</strong> {{ cls.id }}</p>
+        <p><strong>Instructor:</strong> {{ cls.instructor }}</p>
+    </div>
+</div>
+
+<div class="overall-grade">
+    <div class="grade-display">
+        <div class="grade-percentage">{{ "%.1f"|format(overall_percentage) }}%</div>
+        <div class="grade-points">{{ "%.1f"|format(earned_points) }} / {{ total_points }} points</div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Assignment Details</h2>
+    {% if assignments %}
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Assignment</th>
+                        <th>Due Date</th>
+                        <th>Grade</th>
+                        <th>Max Points</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for assignment in assignments %}
+                        <tr>
+                            <td>{{ assignment.title }}</td>
+                            <td>{{ assignment.due_date }}</td>
+                            <td>
+                                {% if assignment.grade is not none %}
+                                    {{ assignment.grade }}
+                                {% else %}
+                                    <span class="grade-missing">Not Graded</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ assignment.max_points }}</td>
+                            <td>
+                                {% if assignment.percentage is not none %}
+                                    <span class="grade-percentage-badge {% if assignment.percentage >= 90 %}excellent{% elif assignment.percentage >= 80 %}good{% elif assignment.percentage >= 70 %}fair{% else %}needs-improvement{% endif %}">
+                                        {{ "%.1f"|format(assignment.percentage) }}%
+                                    </span>
+                                {% else %}
+                                    <span class="grade-missing">-</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="empty-message">No assignments in this class yet.</p>
+    {% endif %}
+</div>
+
+<div class="report-actions">
+    <button onclick="window.print()" class="btn btn-primary">Print Report</button>
+    <a href="{{ url_for('view_class', class_id=cls.id) }}" class="btn btn-secondary">Back to Class</a>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Add Student to {{ cls.name }} - CMS{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <a href="{{ url_for('view_class', class_id=cls.id) }}" class="breadcrumb">&larr; Back to {{ cls.name }}</a>
+        <h1>Add Student</h1>
+        <p>{{ cls.name }} ({{ cls.id }})</p>
+    </div>
+</div>
+
+<div class="form-container">
+    <form method="post" class="form">
+        <div class="form-group">
+            <label for="student_id">Student ID *</label>
+            <input type="text" id="student_id" name="student_id" required placeholder="e.g., S001">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Student Name *</label>
+            <input type="text" id="name" name="name" required placeholder="e.g., Alice Johnson">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="e.g., alice@example.com">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Add Student</button>
+            <a href="{{ url_for('view_class', class_id=cls.id) }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

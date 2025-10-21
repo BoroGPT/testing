@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results - CMS{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <a href="{{ url_for('index') }}" class="breadcrumb">&larr; Back to Classes</a>
+        <h1>Search Results</h1>
+        <p>Showing results for: <strong>{{ query }}</strong></p>
+    </div>
+</div>
+
+{% if results %}
+    <div class="search-results">
+        <p class="results-count">Found {{ results|length }} result(s)</p>
+
+        {% for result in results %}
+            <div class="search-result-card">
+                {% if result.type == 'class' %}
+                    <div class="result-type">Class</div>
+                    <h3>{{ result.class.name }}</h3>
+                    <p><strong>ID:</strong> {{ result.class.id }}</p>
+                    <p><strong>Instructor:</strong> {{ result.class.instructor }}</p>
+                    <p><strong>Schedule:</strong> {{ result.class.schedule }}</p>
+                    <a href="{{ url_for('view_class', class_id=result.class.id) }}" class="btn btn-small btn-primary">View Class</a>
+                {% elif result.type == 'student' %}
+                    <div class="result-type">Student</div>
+                    <h3>{{ result.student.name }}</h3>
+                    <p><strong>ID:</strong> {{ result.student.id }}</p>
+                    <p><strong>Email:</strong> {{ result.student.email }}</p>
+                    <p><strong>Enrolled in:</strong> {{ result.class.name }} ({{ result.class.id }})</p>
+                    <div class="result-actions">
+                        <a href="{{ url_for('view_class', class_id=result.class.id) }}" class="btn btn-small btn-secondary">View Class</a>
+                        <a href="{{ url_for('student_report', class_id=result.class.id, student_id=result.student.id) }}" class="btn btn-small btn-primary">View Report</a>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        <h2>No Results Found</h2>
+        <p>No classes or students matched your search for "{{ query }}"</p>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Classes</a>
+    </div>
+{% endif %}
+{% endblock %}
