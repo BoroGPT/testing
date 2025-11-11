@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Home - CMS{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="container text-center">
+        <h1 class="display-3 fw-bold">Content Management System</h1>
+        <p class="lead">A flexible, powerful CMS built with Flask</p>
+        <div class="mt-4">
+            <a href="/admin" class="btn btn-light btn-lg me-2">Go to Admin</a>
+            <a href="/api/content" class="btn btn-outline-light btn-lg">View API</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center mb-5">
+            <h2 class="mb-4">Features</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="feature-icon">📝</div>
+                    <h5 class="card-title">Flexible Content Types</h5>
+                    <p class="card-text">Create and manage custom content types with JSON schemas. Perfect for pages, posts, products, and more.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="feature-icon">🔌</div>
+                    <h5 class="card-title">RESTful API</h5>
+                    <p class="card-text">Powerful REST API for all content operations. Easy integration with any frontend framework.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="feature-icon">👥</div>
+                    <h5 class="card-title">User Management</h5>
+                    <p class="card-text">Built-in authentication and authorization. Control who can create and edit content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="feature-icon">🖼️</div>
+                    <h5 class="card-title">Media Management</h5>
+                    <p class="card-text">Upload and organize images, documents, and other media files.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="feature-icon">🔍</div>
+                    <h5 class="card-title">Search & Filter</h5>
+                    <p class="card-text">Powerful search across all content with filtering by type, status, and more.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="feature-icon">🏷️</div>
+                    <h5 class="card-title">Categories & Tags</h5>
+                    <p class="card-text">Organize content with hierarchical categories and flexible tagging.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h3 class="card-title">Quick Start</h3>
+                    <p class="card-text">Get started with the CMS:</p>
+                    <ol>
+                        <li><strong>Access the Admin Panel:</strong> <a href="/admin">/admin</a> (Default credentials: admin/admin123)</li>
+                        <li><strong>Create Content Types:</strong> Define your custom content structures</li>
+                        <li><strong>Add Content:</strong> Start creating pages, posts, or any custom content</li>
+                        <li><strong>Use the API:</strong> Access content via <code>/api/content</code></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">API Endpoints</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Endpoint</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge bg-success">GET</span></td>
+                                <td><code>/api/content</code></td>
+                                <td>Get all content with pagination and filtering</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-success">GET</span></td>
+                                <td><code>/api/content/&lt;id&gt;</code></td>
+                                <td>Get specific content by ID</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-success">GET</span></td>
+                                <td><code>/api/content/by-slug/&lt;slug&gt;</code></td>
+                                <td>Get content by slug</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-primary">POST</span></td>
+                                <td><code>/api/content</code></td>
+                                <td>Create new content (requires auth)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-warning">PUT</span></td>
+                                <td><code>/api/content/&lt;id&gt;</code></td>
+                                <td>Update content (requires auth)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-danger">DELETE</span></td>
+                                <td><code>/api/content/&lt;id&gt;</code></td>
+                                <td>Delete content (requires auth)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-success">GET</span></td>
+                                <td><code>/api/search?q=query</code></td>
+                                <td>Search across all content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
