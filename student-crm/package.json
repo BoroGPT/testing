@@ -1,0 +1,18 @@
+{
+  "name": "student-crm",
+  "version": "1.0.0",
+  "description": "A Customer Relationship Management system for students",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "keywords": ["crm", "students", "education"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.2.2",
+    "body-parser": "^1.20.2"
+  }
+}

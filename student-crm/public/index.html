@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student CRM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student CRM</h1>
+            <p>Manage your student database efficiently</p>
+        </header>
+
+        <div class="controls">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search by name, email, or program...">
+                <button onclick="searchStudents()">Search</button>
+                <button onclick="clearSearch()">Clear</button>
+            </div>
+            <div class="filter-bar">
+                <label>Filter by status:</label>
+                <select id="statusFilter" onchange="filterByStatus()">
+                    <option value="">All Students</option>
+                    <option value="active">Active</option>
+                    <option value="graduated">Graduated</option>
+                    <option value="on_leave">On Leave</option>
+                    <option value="withdrawn">Withdrawn</option>
+                </select>
+            </div>
+            <button class="btn-primary" onclick="showAddStudentForm()">Add New Student</button>
+        </div>
+
+        <div id="studentFormModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="formTitle">Add New Student</h2>
+                <form id="studentForm" onsubmit="submitStudent(event)">
+                    <input type="hidden" id="studentId">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="program">Program/Major</label>
+                            <input type="text" id="program">
+                        </div>
+                        <div class="form-group">
+                            <label for="enrollmentStatus">Enrollment Status</label>
+                            <select id="enrollmentStatus">
+                                <option value="active">Active</option>
+                                <option value="graduated">Graduated</option>
+                                <option value="on_leave">On Leave</option>
+                                <option value="withdrawn">Withdrawn</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="enrollmentDate">Enrollment Date</label>
+                            <input type="date" id="enrollmentDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="graduationDate">Graduation Date</label>
+                            <input type="date" id="graduationDate">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gpa">GPA</label>
+                            <input type="number" id="gpa" step="0.01" min="0" max="4.0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Student</button>
+                        <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="student-list">
+            <h2>Students (<span id="studentCount">0</span>)</h2>
+            <div id="studentsContainer"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
